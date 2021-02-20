@@ -4,7 +4,7 @@ import {Button} from "./Button";
 
 
 type CounterPropsType = {
-    count: number
+    startValue: number
     maxCount: number
     incCount: () => void
     resetCount: () => void
@@ -23,7 +23,7 @@ export function Counter(props: CounterPropsType) {
     return (
         <div className="container">
             <div className="wrapper">
-                <Display count={props.count} maxCount={props.maxCount} error={props.error}
+                <Display startValue={props.startValue} maxCount={props.maxCount} error={props.error}
                          isShowCount={props.isShowCount}/>
                 <div className="buttons">
                     <Button callBack={incCount}
@@ -34,7 +34,6 @@ export function Counter(props: CounterPropsType) {
                     <Button callBack={resetCount}
                             title={"RESET"}
                             disabled={props.disabledReset}
-
                     />
                 </div>
             </div>
