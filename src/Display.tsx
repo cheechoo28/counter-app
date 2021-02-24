@@ -1,14 +1,13 @@
 import React from "react";
 
 type DisplayPropsType = {
-    startValue: number
+    startValue?: number
     maxCount: number
     error: string
-    isShowCount: boolean
+    isShowCount?: boolean
 }
 
 export function Display(props: DisplayPropsType) {
-    console.log(props.isShowCount)
     return (
         <div className={"counter"}>
             {

@@ -42,34 +42,6 @@
 }
 
 
-.button {
-    width: 109px;
-    height: 62px;
-    border-radius: 20px;
-    border: 10px solid #444;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #444;
-    background-color: white;
-    padding: 5px 15px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.button1 {
-    width: 109px;
-    height: 62px;
-    border-radius: 20px;
-    border: 10px solid #444;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #444;
-    background-color: green;
-    padding: 5px 15px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
 .spn-error {
     margin: 25px auto;
     font-size: 40px;
@@ -93,6 +65,12 @@
     border-radius: 50px;
 }
 
+.buttons-settings {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
 .input {
     display: flex;
     flex-direction: column;
@@ -111,7 +89,4 @@
 
 }
 
-.input-settings {
-    background-color: white;
-}
 

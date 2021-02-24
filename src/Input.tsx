@@ -8,6 +8,6 @@ type InputPropsType = {
 
 export function Input(props: InputPropsType) {
     return (
-        <input type={"number"} value={props.value} onChange={props.onChange} className={ props.error === "Incorrect value!" ? "input-settings-error" : "input-settings"}/>
+        <input type={"number"} value={props.value} onChange={props.onChange} className={ props.error === "Incorrect value!" ? "input-settings-error" : ""}/>
     )
 }

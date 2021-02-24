@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useReducer, useState} from 'react';
 import './App.css';
 import {Counter} from "./Counter";
 import {SettingsCounter} from "./SettingsCounter";
@@ -6,15 +6,17 @@ import {SettingsCounter} from "./SettingsCounter";
 
 function App() {
 
+
     let [count, setCount] = useState<number>(0)                            //Это значение которое выводится на дисплей
-    let [maxCount, setMaxCount] = useState<number>(0)
-    let [disabledInc, setDisabledInc] = useState<boolean>(true)
+    let [maxCount, setMaxCount] = useState<number>(5)
+    let [disabledInc, setDisabledInc] = useState<boolean>(false)
     let [disabledReset, setDisabledReset] = useState<boolean>(true)
     let [disabledSet, setDisabledSet] = useState<boolean>(true)
+    let [disabledBack, setDisabledBack] = useState<boolean>(false)
     let [startValue, setStartValue] = useState<number>(count)
     let [error, setError] = useState<string>('Enter set')
-    let [isShowCount, setIsShowCount] = useState<boolean>(false)
-
+    let [isShowCount, setIsShowCount] = useState<boolean>(true)
+    let [showSettings, setShowSettings] = useState<boolean>(false)
 
     useEffect(() => {
         let valueAsString = localStorage.getItem('minValue')
@@ -54,31 +56,39 @@ function App() {
 
 
     return (
-        <div className={"cont"}>
-            <SettingsCounter
-                count={count}
-                maxCount={maxCount}
-                setCount={setCount}
-                setMaxCount={setMaxCount}
-                disabledSet={disabledSet}
-                setDisabledInc={setDisabledInc}
-                setDisabledReset={setDisabledReset}
-                setDisabledSet={setDisabledSet}
-                setStartValue={setStartValue}
-                error={error}
-                setError={setError}
-                setIsShowCount={setIsShowCount}
-            />
-            <Counter startValue={startValue}
-                     disabledInc={disabledInc}
-                     disabledReset={disabledReset}
-                     maxCount={maxCount}
-                     incCount={incCount}
-                     resetCount={resetCount}
-                     error={error}
-                     isShowCount={isShowCount}
+        <div>
+            {
+                showSettings ?
+                    <SettingsCounter
+                        count={count}
+                        maxCount={maxCount}
+                        setCount={setCount}
+                        setMaxCount={setMaxCount}
+                        disabledSet={disabledSet}
+                        disabledBack={disabledBack}
+                        setDisabledInc={setDisabledInc}
+                        setDisabledReset={setDisabledReset}
+                        setDisabledBack={setDisabledBack}
+                        setDisabledSet={setDisabledSet}
+                        setStartValue={setStartValue}
+                        error={error}
+                        setError={setError}
+                        setIsShowCount={setIsShowCount}
+                        setShowSettings={setShowSettings}
+                    />
+                   :
+                    <Counter startValue={startValue}
+                             disabledInc={disabledInc}
+                             disabledReset={disabledReset}
+                             maxCount={maxCount}
+                             incCount={incCount}
+                             resetCount={resetCount}
+                             error={error}
+                             isShowCount={isShowCount}
+                             setShowSettings={setShowSettings}
+                    />
+            }
 
-            />
         </div>
 
     )
